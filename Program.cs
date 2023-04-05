@@ -1,28 +1,29 @@
+﻿using Draka_Antivirus.Pages_Principales.Scan;
 using System;
-using System.Security.Permissions;
-using System.Xml.Linq;
+using System.Windows.Forms;
 
-namespace ScanAutomatique
+namespace Draka_Antivirus
 {
-    internal static class Program
+    static class Program
     {
+        public static ScanPersonalise sp;
+        public static bool isSp;
+        public static ScanComplete sc;
+        public static bool isSc;
+        public static Scan s;
+        public static bool scanRun;
+        public static Home home;
         /// <summary>
-        ///  The main entry point for the application.
+        /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-
+            isSc = false;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ApplicationConfiguration.Initialize();            
-            UsbInterface f = new UsbInterface();
-            Download NewDownload = new Download();
-            
-            Application.Run(f);
-        }       
-
+            //Application.Run(new Form1());
+            Application.Run(new Index());
+        }
     }
 }
